@@ -1,0 +1,37 @@
+<%- include ("../partials/header.ejs") %>
+<br><br>
+<form >
+    <fieldset id="information" name="">
+        <div>
+            <label for="nom" required class="requis"> Nom </label>
+            <input type="text" name="nom" id="input">
+        </div>
+
+        <div>
+            <label for="Date_Debut" required class="requis"> Date Debut </label>
+            <input type="date" name="Date_Debut" id="Date_Debut">
+        </div>
+ 
+        <div>
+            <label for="Date_Fin" required class="requis"> Date Fin </label>
+            <input type="date" name="Date_Fin" id="Date_Fin">
+        </div>
+
+        <div>
+            <label for="description"> Description</label>
+            <input type="text" name="telephone" id="input">
+        </div>
+
+        <div>
+            <label for="emplacement" required class="requis"> Emplacement</label>
+            <input type="text" name="emplacement" id="input"> 
+        </div>
+
+
+    </fieldset>
+
+    <button type="submit"> Sauvegarder </button>
+
+    
+</form>
+<%- include ("../partials/footer.ejs") %>

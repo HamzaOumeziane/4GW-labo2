@@ -28,6 +28,7 @@ Importation de Bootstrap
 */
 app.use("/js", express.static(__dirname + "/node_modules/bootstrap/dist/js"));
 app.use("/css", express.static(__dirname + "/node_modules/bootstrap/dist/css"));
+app.use(express.static('public'));
 
 
 /*
@@ -59,4 +60,41 @@ result) {
         });
     });
 });
+
+
+app.get("/event/add", function (req, res) {
+    con.query("SELECT * FROM e_events ORDER BY e_start_date DESC", function (err, 
+result) {
+        if (err) throw err;
+        res.render("pages/add-event", {
+            siteTitle: "Application simple",
+            pageTitle: "Ajouter un nouvel événement",
+            items: result
+        });
+    });
+});
+    
+
+app.post("/event/add", function (req, res) {
+    const requete = "INSERT INTO e_events (e_name, e_start_date, e_start_end, e_desc, e_location) VALUES (?, ?, ?, ?, ?)";
+    const parametres = [
+    req.body.e_name,
+    dateFormat(req.body.e_start_date, "yyyy-mm-dd"),
+    dateFormat(req.body.e_start_end, "yyyy-mm-dd"),
+    req.body.e_desc,
+    req.body.e_location
+    ];
+
+    con.query(requete, parametres, function (err, result) {
+        res.redirect("pages/index");
+    if (err) throw err;
+    res.redirect("pages/index");
+    });
+    });
+    
+    /*
+    Permettre l'utilisation de body lors des POST request
+    */
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
     
