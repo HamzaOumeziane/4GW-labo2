@@ -1,16 +1,23 @@
 /*
 Importation des modules requis
 */
-import express from "express";
-import session from "express-session";
-import path from "path";
-import { fileURLToPath } from "url";
-import mysql from "mysql";
-import { body, validationResult } from "express-validator";
-import dateFormat from "dateformat";
-const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+//import express from "express";
+//import session from "express-session";
+//import path from "path";
+//import { fileURLToPath } from "url";
+//import mysql from "mysql";
+//import { body, validationResult } from "express-validator";
+//import dateFormat from "dateformat";
+
+
+let express = require("express");
+let http = require("http");
+let mysql = require("mysql"); 
+let app = express();
+let bodyParser = require("body-parser");
+//const app = express();
+//const __filename = fileURLToPath(import.meta.url);
+//const __dirname = path.dirname(__filename);
 /*
 Connect to server
 */
@@ -96,5 +103,10 @@ app.post("/event/add", function (req, res) {
     Permettre l'utilisation de body lors des POST request
     */
     app.use(express.json());
-    app.use(express.urlencoded({ extended: true }));
+
+
+    app.use(bodyParser.urlencoded({ extended: true }));
+    module.exports = app;
+
+
     
