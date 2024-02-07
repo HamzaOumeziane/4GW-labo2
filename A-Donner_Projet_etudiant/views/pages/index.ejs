@@ -1,11 +1,35 @@
-
+<!-- Dans views/pages/index.ejs -->
 <%- include ("../partials/header.ejs") %>
+
 <a href="/event/add" class="btn btn-success">Ajouter évènement</a>
+
+
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Date de début</th>
+            <th>Date de fin</th>
+            <th>Description</th>
+            <th>Emplacement</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% items.forEach (function (item) { %>
+            <tr>
+                <td><%= item.E_NAME %></td>
+                <td><%= dateFormat(item.E_START_DATE,"dd/mm/yyyy") %></td>
+                <td><%= dateFormat(item.E_START_END,"dd/mm/yyyy") %></td>
+                <td><%= item.E_DESC %></td>
+                <td><%= item.E_LOCATION %></td>
+            </tr>
+        <% }); %> 
+    </tbody>
+
+</table>
+
+
+<%= items.length %>
+
 <%- include ("../partials/footer.ejs") %>
-
-
-<p>
-
-
-</p>
-

@@ -1,37 +1,34 @@
 <%- include ("../partials/header.ejs") %>
-<br><br>
-<form >
+ 
+<form id="myForm" action="/event/add" method="post">
     <fieldset id="information" name="">
-        <div>
-            <label for="nom" required class="requis"> Nom </label>
-            <input type="text" name="nom" id="input">
-        </div>
-
-        <div>
-            <label for="Date_Debut" required class="requis"> Date Debut </label>
-            <input type="date" name="Date_Debut" id="Date_Debut">
+        <div class="horizontal">
+            <label for="e_name" required class="requis"> Nom:</label>
+            <input type="text" name="e_name" id="input">
         </div>
  
-        <div>
-            <label for="Date_Fin" required class="requis"> Date Fin </label>
-            <input type="date" name="Date_Fin" id="Date_Fin">
+        <div class="horizontal">
+            <label for="e_start_date" required class="requis"> Date Debut:</label>
+            <input type="date" name="e_start_date" id="Date_Debut">
         </div>
-
-        <div>
-            <label for="description"> Description</label>
-            <input type="text" name="telephone" id="input">
+ 
+        <div class="horizontal">
+            <label for="e_end_date" required class="requis"> Date Fin:</label>
+            <input type="date" name="e_start_end" id="Date_Fin">
         </div>
-
-        <div>
-            <label for="emplacement" required class="requis"> Emplacement</label>
-            <input type="text" name="emplacement" id="input"> 
+ 
+        <div class="horizontal">
+            <label for="e_desc"> description:</label>
+            <input style="height: 150px;" type="text" name="e_desc" id="input">
         </div>
-
-
+ 
+        <div class="horizontal">
+            <label for="e_location" required class="requis"> emplacement:</label>
+            <input style="height: 150px;" type="place" name="e_location" id="input">
+        </div>
+ 
+        <button type="submit" id="confirmButton">Sauvegarder</button>
     </fieldset>
-
-    <button type="submit"> Sauvegarder </button>
-
-    
 </form>
+ 
 <%- include ("../partials/footer.ejs") %>
